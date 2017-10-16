@@ -29,44 +29,25 @@ public:
 class ShapeFactory {
 public:
 	Shape getShape(string shapeType) {
-		cout << shapeType;
 		if (shapeType == "") {
 			throw invalid_argument("received no shape type");
 		}
-		if (shapeType == "Rectangle") {
+		if (shapeType.compare("Rectangle") == 0) {
 			return Rectangle();
 		}
-		else if (shapeType == "Square") {
+		else if (shapeType.compare("Square") == 0) {
 			return Square();
 		}
-		else if (shapeType == "Circle") {
+		else if (shapeType.compare("Circle") == 0) {
 			return Circle();
 		}
 	}
 };
-Shape shapeFactoryFunction(string shapeType) {
-	/* Just to prove there is a world outside of Java, here is a
-	function that works as good as the class if not better. */
-	if (shapeType == "") {
-		throw invalid_argument("received no shape type");
-	}
-	if (shapeType == "Rectangle") {
-		return Rectangle();
-	}
-	else if (shapeType == "Square") {
-		return Square();
-	}
-	else if (shapeType == "Circle") {
-		return Circle();
-	}
-}
 int main()
 {
 	ShapeFactory shapeFactory = ShapeFactory();
 
 	Shape shape1 = shapeFactory.getShape("Rectangle");
 	shape1.draw();
-	Shape shape2 = shapeFactoryFunction("Circle");
-	_fgetchar();
+	getchar();
 }
-
